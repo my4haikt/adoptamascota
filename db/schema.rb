@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160519134302) do
+ActiveRecord::Schema.define(version: 20160527150405) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,9 +20,11 @@ ActiveRecord::Schema.define(version: 20160519134302) do
     t.string   "tipo"
     t.string   "raza"
     t.string   "genero"
-    t.text     "descripcion"
+    t.string   "edad"
+    t.string   "descripcion"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "rescatado"
   end
 
   create_table "servicios", force: :cascade do |t|
@@ -38,6 +40,10 @@ ActiveRecord::Schema.define(version: 20160519134302) do
     t.integer  "tipo_servicio_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.string   "telefono1"
+    t.string   "telefono2"
+    t.string   "celular1"
+    t.string   "celular2"
   end
 
   add_index "servicios", ["tipo_servicio_id"], name: "index_servicios_on_tipo_servicio_id", using: :btree

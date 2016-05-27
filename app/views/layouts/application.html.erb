@@ -10,11 +10,14 @@
   </head>
   <body>
     <header>
-      <%= render 'layouts/navigation' %>
+      <%= render 'shared/header.html.erb' %>
     </header>
     <main role="main">
       <%= render 'layouts/messages' %>
       <%= yield %>
     </main>
+    <footer>
+      <%= render 'shared/footer.html.erb' %>
+    </footer>
   </body>
 </html>

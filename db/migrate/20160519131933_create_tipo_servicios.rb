@@ -3,6 +3,7 @@ class CreateTipoServicios < ActiveRecord::Migration
     create_table :tipo_servicios do |t|
       t.string :nombre
       t.text :descripcion
+      
 
       t.timestamps null: false
     end
