@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  
   get 'pages/home'
 
   get 'pages/index'
 
+  resources :datos_personals
   resources :tipo_servicios
   root 'pages#home'
   # The priority is based upon order of creation: first created -> highest priority.

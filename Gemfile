@@ -13,7 +13,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'figaro'
-gem 'simple_form'  
+gem 'simple_form' 
+ 
 #la siguiente gema permite manejar varios archivos seeds
 gem 'seedbank'
 gem 'bootstrap-sass', '~> 3.3.4'
