@@ -1,6 +1,7 @@
 class DatosPersonalsController < ApplicationController
   include CodigosGenerales
     before_action :cargarOpcionesDelMenuServicios
+    before_action :set_datos_personal, only: [:show, :edit, :update , :destroy]
 
 
   def index
@@ -31,6 +32,10 @@ class DatosPersonalsController < ApplicationController
   def edit
   end
 
+  def show
+    puts "show"
+  end
+
   def update
   end
 
@@ -39,6 +44,10 @@ class DatosPersonalsController < ApplicationController
 
   def datos_personal_params
     params.require(:datos_personal).permit(:nombre, :apellido, :fecha_nacimiento, :sexo, :telefono, :celular, :direccion, :estado, :ciudad, :calificacion, :correo_alternativo)
+  end
+
+  def set_datos_personal
+    @datos_personal = DatosPersonal.find(params[:id])
   end
 
 end
