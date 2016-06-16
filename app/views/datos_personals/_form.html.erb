@@ -49,11 +49,11 @@
             </div>
              <div class="col-lg-8">
              <%= f.input :estado, label: 'Estado', placeholder: "Coloque el estado donde vive" %>
-             <%#= f.input :estado, :collection => @datos_personal.estados_venezolanos %>
+             <%= f.input :estado, :collection => @datos_personal.estados_venezolanos, input_html: {class: 'estado_seleccionado'} %>
 
             </div>
               <div class="col-lg-8">
-             <%= f.input :ciudad, label: 'ciudad', placeholder: "Coloque la ciudad donde vive" %>
+             <%= f.input :ciudad, :collection => @ciudades, input_html: {class: 'coleccion_ciudades'} %>
             </div>
               <div class="col-lg-8">
              <%= f.input :direccion, as: :text, label: 'Dirección de habitación', placeholder: "Coloque la dirección donde vive" %>
@@ -72,7 +72,7 @@
       
       <div class="form-group">
         <div class="col-lg-offset-2 col-lg-10">
-          <%= f.button :submit, "Agregar", :class=> "btn btn-primary" %>
+          <%= f.button :submit, labelBoton, :class=> "btn btn-primary" %>
         </div>
       </div>
     <%end%>

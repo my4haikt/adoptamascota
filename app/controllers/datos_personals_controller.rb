@@ -5,11 +5,12 @@ class DatosPersonalsController < ApplicationController
 
 
   def index
-
+    @datos_personals= DatosPersonal.all.paginate(:page=>params[:page], :per_page=>5)
   end
 
   def new
     @datos_personal=DatosPersonal.new
+    @ciudades=['Cuba']
    end
 
   def create
@@ -30,6 +31,7 @@ class DatosPersonalsController < ApplicationController
   end
 
   def edit
+    @datos_personals=DatosPersonal.find(params[:id])
   end
 
   def show
@@ -37,6 +39,17 @@ class DatosPersonalsController < ApplicationController
   end
 
   def update
+    respond_to do |format|
+      if @datos_personal.update (datos_personal_params)
+        format.html{
+          redirect_to @datos_personal, notice: "Sus datos personales han sido modificados exitosamente"
+        }
+        format.json{ render :show, status: :ok, location: @datos_personal}
+      else
+        format.html { render :edit }
+        format.json { render json: @datos_personal.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
